@@ -1,3 +1,7 @@
-com/example/config/ApplicationConfig.class
-com/example/Application.class
-com/example/config/SwaggerConfig.class
+com\example\model\Employees.class
+com\example\Application.class
+com\example\service\EmployeesService.class
+com\example\config\SwaggerConfig.class
+com\example\controller\EmployeesController.class
+com\example\config\ApplicationConfig.class
+com\example\repository\EmployeesRepository.class

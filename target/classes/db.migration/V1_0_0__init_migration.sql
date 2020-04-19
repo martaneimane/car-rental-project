@@ -1,11 +1,14 @@
-CREATE TABLE IF NOT EXISTS `book` (
+CREATE TABLE IF NOT EXISTS `rental_office`
+(
 
-    `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(MAX)
+    'id'   int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    'name' varchar(MAX),
+    'address' varchar(MAX),
+    'web_page' varchar (MAX),
+    'cars_total' integer,
+    'employees_total' integer
 
-)ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
-insert into book values(1, 'The Tartar Steppe');
-insert into book values(2, 'Poem Strip');
-insert into book values(3, 'Restless Nights: Selected Stories of Dino Buzzati');
+insert into 'rental_office' values (1, 'The Rental Company', 'Company road 1, 10117 Berlin', 'www.therentalcompany.com',10,5);
