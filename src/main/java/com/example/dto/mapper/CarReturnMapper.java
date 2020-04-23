@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CarReturnMapper {
 
-    public CarReturnDTO returnToDto(CarReturn carReturn) {
+    public CarReturnDTO carReturnToDto(CarReturn carReturn) {
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(carReturn.getId());
         carReturnDTO.setEmployee(carReturn.getEmployee());
