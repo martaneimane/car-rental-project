@@ -12,15 +12,15 @@ public class Booking implements Serializable {
     @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_BOOKING", allocationSize = 1)
     private Long id;
     @Column(name = "booking_date")
-    private Integer bookingDate;
+    private java.sql.Date bookingDate;
     @Column(name = "customer")
     private int customer;
     @Column(name = "car")
     private int car;
     @Column(name = "date_from")
-    private Integer dateFrom;
+    private java.sql.Date dateFrom;
     @Column(name = "date_to")
-    private Integer dateTo;
+    private java.sql.Date dateTo;
     @Column(name = "booking_cost")
     private BigDecimal bookingCost;
 
@@ -32,11 +32,11 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Integer getBookingDate() {
+    public java.sql.Date getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Integer bookingDate) {
+    public void setBookingDate(java.sql.Date bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -56,19 +56,19 @@ public class Booking implements Serializable {
         this.car = car;
     }
 
-    public Integer getDateFrom() {
+    public java.sql.Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Integer dateFrom) {
+    public void setDateFrom(java.sql.Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Integer getDateTo() {
+    public java.sql.Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Integer dateTo) {
+    public void setDateTo(java.sql.Date dateTo) {
         this.dateTo = dateTo;
     }
 

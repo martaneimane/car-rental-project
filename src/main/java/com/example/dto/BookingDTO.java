@@ -1,17 +1,20 @@
 package com.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 
 public class BookingDTO {
 
     private Long id;
-    private Integer bookingDate;
+    private java.sql.Date bookingDate;
     private int customer;
     private int car;
-    private Integer dateFrom;
-    private Integer dateTo;
+    private java.sql.Date dateFrom;
+    private java.sql.Date dateTo;
     private BigDecimal bookingCost;
 
+    @JsonProperty("booking_id")
     public Long getId() {
         return id;
     }
@@ -20,11 +23,11 @@ public class BookingDTO {
         this.id = id;
     }
 
-    public Integer getBookingDate() {
+    public java.sql.Date getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Integer bookingDate) {
+    public void setBookingDate(java.sql.Date bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -44,19 +47,19 @@ public class BookingDTO {
         this.car = car;
     }
 
-    public Integer getDateFrom() {
+    public java.sql.Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Integer dateFrom) {
+    public void setDateFrom(java.sql.Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Integer getDateTo() {
+    public java.sql.Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Integer dateTo) {
+    public void setDateTo(java.sql.Date dateTo) {
         this.dateTo = dateTo;
     }
 
