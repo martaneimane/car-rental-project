@@ -4,40 +4,40 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
+@Entity(name = "booking")
 public class Booking implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_BOOKING", allocationSize = 1)
     private Long id;
-    @Column(name = "Booking date")
-    private Integer booking_date;
-    @Column(name = "CustomerID")
+    @Column(name = "booking_date")
+    private Integer bookingDate;
+    @Column(name = "customer")
     private int customer;
-    @Column(name = "CarID")
+    @Column(name = "car")
     private int car;
-    @Column(name = "Booked from")
-    private Integer date_from;
-    @Column(name = "Booked to")
-    private Integer date_to;
-    @Column(name = "Booking cost")
-    private BigDecimal booking_cost;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "date_from")
+    private Integer dateFrom;
+    @Column(name = "date_to")
+    private Integer dateTo;
+    @Column(name = "booking_cost")
+    private BigDecimal bookingCost;
 
     public Long getId() {
         return id;
     }
 
-    public Integer getBooking_date() {
-        return booking_date;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setBooking_date(Integer booking_date) {
-        this.booking_date = booking_date;
+    public Integer getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(Integer bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
     public int getCustomer() {
@@ -56,27 +56,27 @@ public class Booking implements Serializable {
         this.car = car;
     }
 
-    public Integer getDate_from() {
-        return date_from;
+    public Integer getDateFrom() {
+        return dateFrom;
     }
 
-    public void setDate_from(Integer date_from) {
-        this.date_from = date_from;
+    public void setDateFrom(Integer dateFrom) {
+        this.dateFrom = dateFrom;
     }
 
-    public Integer getDate_to() {
-        return date_to;
+    public Integer getDateTo() {
+        return dateTo;
     }
 
-    public void setDate_to(Integer date_to) {
-        this.date_to = date_to;
+    public void setDateTo(Integer dateTo) {
+        this.dateTo = dateTo;
     }
 
-    public BigDecimal getBooking_cost() {
-        return booking_cost;
+    public BigDecimal getBookingCost() {
+        return bookingCost;
     }
 
-    public void setBooking_cost(BigDecimal booking_cost) {
-        this.booking_cost = booking_cost;
+    public void setBookingCost(BigDecimal bookingCost) {
+        this.bookingCost = bookingCost;
     }
 }

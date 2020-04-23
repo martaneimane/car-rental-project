@@ -9,5 +9,6 @@ CREATE TABLE IF NOT EXISTS `rental_office`
 
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
+CREATE SEQUENCE SEQ_RENTALOFFICE increment by 1;
 
-insert into rental_office values (1, 'The Rental Company', 'Company road 1, 10117 Berlin', 'www.therentalcompany.com',10,5);
+insert into rental_office values (SEQ_RENTALOFFICE.nextVal, 'The Rental Company', 'Company road 1, 10117 Berlin', 'www.therentalcompany.com',10,5);

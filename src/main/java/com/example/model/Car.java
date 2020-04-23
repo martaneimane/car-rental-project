@@ -4,29 +4,29 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
-public class Cars implements Serializable {
+@Entity(name = "car")
+public class Car implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_CAR", allocationSize = 1)
     private Long id;
-    @Column(name = "Brand")
+    @Column(name = "brand")
     private String brand;
-    @Column(name = "Model")
+    @Column(name = "model")
     private String model;
-    @Column(name = "Body_type")
-    private String body_type;
-    @Column(name = "Year")
+    @Column(name = "body_type")
+    private String bodyType;
+    @Column(name = "year")
     private int year;
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
-    @Column(name = "Mileage")
+    @Column(name = "mileage")
     private int mileage;
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
-    @Column(name = "Price/day")
-    private BigDecimal priva_per_day;
+    @Column(name = "price_per_day")
+    private BigDecimal pricePerDay;
 
     public Long getId() {
         return id;
@@ -52,12 +52,12 @@ public class Cars implements Serializable {
         this.model = model;
     }
 
-    public String getBody_type() {
-        return body_type;
+    public String getBodyType() {
+        return bodyType;
     }
 
-    public void setBody_type(String body_type) {
-        this.body_type = body_type;
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
     }
 
     public int getYear() {
@@ -92,11 +92,11 @@ public class Cars implements Serializable {
         this.status = status;
     }
 
-    public BigDecimal getPriva_per_day() {
-        return priva_per_day;
+    public BigDecimal getPricePerDay() {
+        return pricePerDay;
     }
 
-    public void setPriva_per_day(BigDecimal priva_per_day) {
-        this.priva_per_day = priva_per_day;
+    public void setPricePerDay(BigDecimal pricePerDay) {
+        this.pricePerDay = pricePerDay;
     }
 }

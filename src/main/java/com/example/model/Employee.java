@@ -3,13 +3,12 @@ package com.example.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-public class Employees implements Serializable {
+@Entity(name = "employee")
+public class Employee implements Serializable {
 
     @Id
     @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_EMPLOYEE", allocationSize = 100)
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_EMPLOYEE", allocationSize = 1)
     private Long id;
     @Column(name = "name")
     private String name;

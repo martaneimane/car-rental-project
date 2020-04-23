@@ -3,21 +3,21 @@ package com.example.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@Entity(name = "customer")
 public class Customer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_CUSTOMER", allocationSize = 1)
     private Long id;
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
-    @Column(name = "Surname")
+    @Column(name = "surname")
     private String surname;
-    @Column(name = "Address")
-    private String address;
-    @Column(name = "Email")
+    @Column(name = "email")
     private String email;
+    @Column(name = "address")
+    private String address;
 
     public Long getId() {
         return id;
@@ -43,14 +43,6 @@ public class Customer implements Serializable {
         this.surname = surname;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -59,4 +51,11 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

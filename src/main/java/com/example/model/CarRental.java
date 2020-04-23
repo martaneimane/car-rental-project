@@ -2,24 +2,21 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
-@Entity
-public class Return implements Serializable {
+@Entity(name = "car_rental")
+public class CarRental implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_CAR_RENTAL", allocationSize = 1)
     private Long id;
-    @Column(name = "EmployeeID")
+    @Column(name = "employee")
     private int employee;
-    @Column(name = "Return date")
-    private Integer return_date;
-    @Column(name = "BookingID")
+    @Column(name = "rental_date")
+    private Integer rentalDate;
+    @Column(name = "booking")
     private int booking;
-    @Column(name = "Additional payements")
-    private BigDecimal add_payments;
-    @Column(name = "Comments")
+    @Column(name = "comments")
     private String comments;
 
     public Long getId() {
@@ -38,12 +35,12 @@ public class Return implements Serializable {
         this.employee = employee;
     }
 
-    public Integer getReturn_date() {
-        return return_date;
+    public Integer getRentalDate() {
+        return rentalDate;
     }
 
-    public void setReturn_date(Integer return_date) {
-        this.return_date = return_date;
+    public void setRentalDate(Integer rentalDate) {
+        this.rentalDate = rentalDate;
     }
 
     public int getBooking() {
@@ -52,14 +49,6 @@ public class Return implements Serializable {
 
     public void setBooking(int booking) {
         this.booking = booking;
-    }
-
-    public BigDecimal getAdd_payments() {
-        return add_payments;
-    }
-
-    public void setAdd_payments(BigDecimal add_payments) {
-        this.add_payments = add_payments;
     }
 
     public String getComments() {
