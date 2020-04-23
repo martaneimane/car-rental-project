@@ -1,32 +1,21 @@
-package com.example.model;
+package com.example.dto;
 
-import javax.persistence.*;
-import java.io.Serializable;
+public class Rental_OfficeDTO extends AbstractResponseDTO{
 
-@Entity
-public class Rental_Office implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
-    @Column(name = "Name")
     private String name;
-    @Column(name = "Address")
     private String address;
-    @Column(name = "Website")
     private String web_page;
-    @Column(name = "Cars total")
     private Integer cars_total;
-    @Column(name = "Employees total")
     private Integer employees_total;
-
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -69,3 +58,5 @@ public class Rental_Office implements Serializable {
         this.employees_total = employees_total;
     }
 }
+
+
