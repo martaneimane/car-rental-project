@@ -1,4 +1,5 @@
 package com.example.dto.mapper;
+
 import com.example.dto.CarReturnDTO;
 
 import com.example.model.CarReturn;
@@ -17,10 +18,12 @@ public class CarReturnMapper {
         carReturnDTO.setComments(carReturn.getComments());
         return carReturnDTO;
     }
+
     public CarReturn fromDto(CarReturnDTO carReturnDTO) {
         CarReturn carReturn = new CarReturn();
         carReturn.setId(carReturnDTO.getId());
         carReturn.setEmployee(carReturnDTO.getEmployee());
+        carReturn.setReturnDate(carReturnDTO.getReturnDate());
         carReturn.setBooking(carReturnDTO.getBooking());
         carReturn.setAdditionalPayments(carReturnDTO.getAdditionalPayments());
         carReturn.setComments(carReturnDTO.getComments());

@@ -2,11 +2,12 @@ package com.example.dto;
 
 import javax.persistence.Column;
 import java.math.BigDecimal;
+import java.sql.Date;
 
 public class CarReturnDTO {
     private Long id;
     private int employee;
-    private Integer returnDate;
+    private java.sql.Date returnDate;
     private int booking;
     private BigDecimal additionalPayments;
     private String comments;
@@ -36,11 +37,11 @@ public class CarReturnDTO {
         this.booking = booking;
     }
 
-    public Integer getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Integer returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 
