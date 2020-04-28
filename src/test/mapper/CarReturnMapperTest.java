@@ -6,7 +6,7 @@ import com.example.model.CarReturn;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +19,7 @@ class CarReturnMapperTest {
         CarReturn carReturn = new CarReturn();
         carReturn.setId(1L);
         carReturn.setEmployee(1);
-        carReturn.setReturnDate(Date.valueOf("2020-01-01"));
+        carReturn.setReturnDate(LocalDate.of(2020, 1, 1));
         carReturn.setBooking(1);
         carReturn.setAdditionalPayments(new BigDecimal("10.00"));
         carReturn.setComments("Test Comments");
@@ -27,7 +27,7 @@ class CarReturnMapperTest {
         CarReturnDTO carReturnDTO = carReturnMapper.carReturnToDto(carReturn);
         assertEquals(Long.valueOf(1), carReturnDTO.getId());
         assertEquals(1, carReturnDTO.getEmployee());
-        assertEquals(Date.valueOf("2020-01-01"), carReturnDTO.getReturnDate());
+        assertEquals(LocalDate.of(2020, 1, 1), carReturnDTO.getReturnDate());
         assertEquals(1, carReturnDTO.getBooking());
         assertEquals(new BigDecimal("10.00"), carReturnDTO.getAdditionalPayments());
         assertEquals("Test Comments", carReturnDTO.getComments());
@@ -40,7 +40,7 @@ class CarReturnMapperTest {
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(1L);
         carReturnDTO.setEmployee(1);
-        carReturnDTO.setReturnDate(Date.valueOf("2020-01-01"));
+        carReturnDTO.setReturnDate(LocalDate.of(2020, 1, 1));
         carReturnDTO.setBooking(1);
         carReturnDTO.setAdditionalPayments(new BigDecimal("10.00"));
         carReturnDTO.setComments("Test Comments");
@@ -48,7 +48,7 @@ class CarReturnMapperTest {
         CarReturn carReturn = carReturnMapper.fromDto(carReturnDTO);
         assertEquals(Long.valueOf(1), carReturn.getId());
         assertEquals(1, carReturn.getEmployee());
-        assertEquals(Date.valueOf("2020-01-01"), carReturn.getReturnDate());
+        assertEquals(LocalDate.of(2020, 1, 1), carReturn.getReturnDate());
         assertEquals(1, carReturn.getBooking());
         assertEquals(new BigDecimal("10.00"), carReturn.getAdditionalPayments());
         assertEquals("Test Comments", carReturn.getComments());

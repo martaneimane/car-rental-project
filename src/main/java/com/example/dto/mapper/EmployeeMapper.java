@@ -1,8 +1,6 @@
 package com.example.dto.mapper;
 
-import com.example.dto.CustomerDTO;
 import com.example.dto.EmployeeDTO;
-import com.example.model.Customer;
 import com.example.model.Employee;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,7 @@
 package com.example.service;
 
-import com.example.dto.BookingDTO;
 import com.example.dto.CarReturnDTO;
 import com.example.dto.mapper.CarReturnMapper;
-import com.example.model.Booking;
 import com.example.model.CarReturn;
 import com.example.repository.CarReturnRepository;
 import org.springframework.beans.factory.annotation.Autowired;

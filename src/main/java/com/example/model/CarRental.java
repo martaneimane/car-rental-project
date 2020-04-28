@@ -2,7 +2,7 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity(name = "car_rental")
 public class CarRental implements Serializable {
@@ -14,7 +14,7 @@ public class CarRental implements Serializable {
     @Column(name = "employee")
     private int employee;
     @Column(name = "rental_date")
-    private java.sql.Date rentalDate;
+    private LocalDate rentalDate;
     @Column(name = "booking")
     private int booking;
     @Column(name = "comments")
@@ -36,11 +36,11 @@ public class CarRental implements Serializable {
         this.employee = employee;
     }
 
-    public Date getRentalDate() {
+    public LocalDate getRentalDate() {
         return rentalDate;
     }
 
-    public void setRentalDate(Date rentalDate) {
+    public void setRentalDate(LocalDate rentalDate) {
         this.rentalDate = rentalDate;
     }
 

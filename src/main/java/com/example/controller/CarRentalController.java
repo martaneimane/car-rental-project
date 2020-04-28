@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.dto.BookingDTO;
 import com.example.dto.CarRentalDTO;
 import com.example.service.CarRentalService;
 import org.springframework.web.bind.annotation.*;

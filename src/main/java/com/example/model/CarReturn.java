@@ -3,7 +3,7 @@ package com.example.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity(name = "car_return")
 public class CarReturn implements Serializable {
@@ -15,7 +15,7 @@ public class CarReturn implements Serializable {
     @Column(name = "employee")
     private int employee;
     @Column(name = "return_date")
-    private java.sql.Date returnDate;
+    private LocalDate returnDate;
     @Column(name = "booking")
     private int booking;
     @Column(name = "additional_payments")
@@ -39,11 +39,11 @@ public class CarReturn implements Serializable {
         this.employee = employee;
     }
 
-    public Date getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 

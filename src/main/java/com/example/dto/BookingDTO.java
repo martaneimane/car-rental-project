@@ -1,20 +1,36 @@
 package com.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class BookingDTO {
 
-    private Long id;
-    private java.sql.Date bookingDate;
-    private int customer;
-    private int car;
-    private java.sql.Date dateFrom;
-    private java.sql.Date dateTo;
-    private BigDecimal bookingCost;
 
     @JsonProperty("booking_id")
+    private Long id;
+    @ApiModelProperty(required = true, example = "2020-01-01")
+    @JsonProperty("bookingDate")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate bookingDate;
+    @JsonProperty("customer")
+    private int customer;
+    @JsonProperty("car")
+    private int car;
+    @ApiModelProperty(required = true, example = "2020-01-01")
+    @JsonProperty("dateFrom")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateFrom;
+    @JsonProperty("dateTo")
+    @ApiModelProperty(required = true, example = "2020-01-01")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateTo;
+    @JsonProperty("bookingCost")
+    private BigDecimal bookingCost;
+
     public Long getId() {
         return id;
     }
@@ -23,11 +39,11 @@ public class BookingDTO {
         this.id = id;
     }
 
-    public java.sql.Date getBookingDate() {
+    public LocalDate getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(java.sql.Date bookingDate) {
+    public void setBookingDate(LocalDate bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -47,19 +63,19 @@ public class BookingDTO {
         this.car = car;
     }
 
-    public java.sql.Date getDateFrom() {
+    public LocalDate getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(java.sql.Date dateFrom) {
+    public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public java.sql.Date getDateTo() {
+    public LocalDate getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(java.sql.Date dateTo) {
+    public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
     }
 

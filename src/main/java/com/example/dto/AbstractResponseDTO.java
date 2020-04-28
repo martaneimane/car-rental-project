@@ -1,11 +1,16 @@
 package com.example.dto;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.time.LocalDate;
 
 public class AbstractResponseDTO {
 
     private String type = "Response";
-    private Date time = new Date();
+    @ApiModelProperty(required = true, example = "2020-01-01")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate time = LocalDate.now();
 
     public String getType() {
         return type;
@@ -15,11 +20,11 @@ public class AbstractResponseDTO {
         this.type = type;
     }
 
-    public Date getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 }

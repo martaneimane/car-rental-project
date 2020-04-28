@@ -3,6 +3,7 @@ package com.example.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity(name = "booking")
 public class Booking implements Serializable {
@@ -12,15 +13,15 @@ public class Booking implements Serializable {
     @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_BOOKING", allocationSize = 1)
     private Long id;
     @Column(name = "booking_date")
-    private java.sql.Date bookingDate;
+    private LocalDate bookingDate;
     @Column(name = "customer")
     private int customer;
     @Column(name = "car")
     private int car;
     @Column(name = "date_from")
-    private java.sql.Date dateFrom;
+    private LocalDate dateFrom;
     @Column(name = "date_to")
-    private java.sql.Date dateTo;
+    private LocalDate dateTo;
     @Column(name = "booking_cost")
     private BigDecimal bookingCost;
 
@@ -32,11 +33,11 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public java.sql.Date getBookingDate() {
+    public LocalDate getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(java.sql.Date bookingDate) {
+    public void setBookingDate(LocalDate bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -56,19 +57,19 @@ public class Booking implements Serializable {
         this.car = car;
     }
 
-    public java.sql.Date getDateFrom() {
+    public LocalDate getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(java.sql.Date dateFrom) {
+    public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public java.sql.Date getDateTo() {
+    public LocalDate getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(java.sql.Date dateTo) {
+    public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
     }
 

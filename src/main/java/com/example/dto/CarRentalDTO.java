@@ -1,13 +1,16 @@
 package com.example.dto;
 
-import javax.persistence.Column;
-import java.math.BigDecimal;
-import java.sql.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.time.LocalDate;
 
 public class CarRentalDTO {
     private Long id;
     private int employee;
-    private java.sql.Date rentalDate;
+    @ApiModelProperty(required = true, example = "2020-01-01")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate rentalDate;
     private int booking;
     private String comments;
 
@@ -27,11 +30,11 @@ public class CarRentalDTO {
         this.employee = employee;
     }
 
-    public Date getRentalDate() {
+    public LocalDate getRentalDate() {
         return rentalDate;
     }
 
-    public void setRentalDate(Date rentalDate) {
+    public void setRentalDate(LocalDate rentalDate) {
         this.rentalDate = rentalDate;
     }
 
