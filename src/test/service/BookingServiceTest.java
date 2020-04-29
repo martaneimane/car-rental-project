@@ -32,7 +32,6 @@ class BookingServiceTest {
         List<BookingDTO> bookingAfterAdd = bookingService.getAllBookings();
 
         assertEquals(bookingAfterAdd.size(), bookingBeforeAdd.size() +1);
-
     }
 
     @Test
