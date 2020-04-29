@@ -1,6 +1,6 @@
 package com.example.dto;
 
-public class RentalOfficeDTO extends AbstractResponseDTO {
+public class RentalOfficeDTO {
 
 
     private Long id;
