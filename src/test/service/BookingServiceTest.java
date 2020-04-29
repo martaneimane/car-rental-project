@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -21,16 +23,44 @@ class BookingServiceTest {
 
     @Test
     void getAllBookings() {
+        List<BookingDTO> bookingBeforeAdd = bookingService.getAllBookings();
+
+        Booking booking = new Booking();
+        booking.setId(1L);
+
+        when(bookingRepository.findAll()).thenReturn(Collections.singletonList(booking));
+        List<BookingDTO> bookingAfterAdd = bookingService.getAllBookings();
+
+        assertEquals(bookingAfterAdd.size(), bookingBeforeAdd.size() +1);
+
     }
 
     @Test
     void createBooking() {
+        List<BookingDTO> bookingBeforeAdd = bookingService.getAllBookings();
 
+        Booking booking = new Booking();
+        booking.setId(1L);
 
+        when(bookingRepository.findAll()).thenReturn(Collections.singletonList(booking));
+        List<BookingDTO> bookingAfterAdd = bookingService.getAllBookings();
+
+        assertEquals(bookingAfterAdd.size(), bookingBeforeAdd.size() +1);
     }
 
     @Test
     void updateBooking() {
+        Booking booking = new Booking();
+        booking.setId(1L);
+        booking.setCustomer(1);
+
+        when(bookingRepository.getOne(1L)).thenReturn(booking);
+        BookingDTO bookingResult = bookingService.getBookingById(1L);
+
+        bookingResult.setCustomer(2);
+        bookingService.updateBooking(bookingResult);
+
+        assertEquals(2,bookingResult.getCustomer());
     }
 
     @Test
