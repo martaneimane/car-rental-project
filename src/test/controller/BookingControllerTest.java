@@ -3,6 +3,7 @@ package controller;
 import com.example.Application;
 import com.example.controller.BookingController;
 import com.example.dto.BookingDTO;
+import com.example.model.Car;
 import com.example.service.BookingService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -41,6 +42,7 @@ class BookingControllerTest {
     private BookingService bookingService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
+    private Car car = new Car();
 
     @BeforeEach
     void setUp() {
@@ -54,7 +56,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-    //    bookingDTO.setCar(1);
+        bookingDTO.setCar(car);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -74,7 +76,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-     //   bookingDTO.setCar(1);
+        bookingDTO.setCar(car);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -93,7 +95,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-     //   bookingDTO.setCar(1);
+        bookingDTO.setCar(car);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -111,7 +113,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-     //   bookingDTO.setCar(1);
+        bookingDTO.setCar(car);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));

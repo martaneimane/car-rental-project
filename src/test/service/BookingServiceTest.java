@@ -2,6 +2,7 @@ package service;
 
 import com.example.dto.BookingDTO;
 import com.example.dto.mapper.BookingMapper;
+
 import com.example.model.Booking;
 import com.example.repository.BookingRepository;
 import com.example.service.BookingService;
@@ -51,15 +52,15 @@ class BookingServiceTest {
     void updateBooking() {
         Booking booking = new Booking();
         booking.setId(1L);
-     //   booking.setCustomer(1);
+        booking.setBookingCost(new BigDecimal(100));
 
         when(bookingRepository.getOne(1L)).thenReturn(booking);
         BookingDTO bookingResult = bookingService.getBookingById(1L);
 
-      //  bookingResult.setCustomer(2);
+        bookingResult.setBookingCost(new BigDecimal(200));
         bookingService.updateBooking(bookingResult);
 
-     //   assertEquals(2,bookingResult.getCustomer());
+        assertEquals(new BigDecimal(200),bookingResult.getBookingCost());
     }
 
     @Test
@@ -67,21 +68,11 @@ class BookingServiceTest {
         Booking booking = new Booking();
         booking.setId(1L);
         booking.setBookingDate(LocalDate.of(2020, 1, 1));
-      //  booking.setCustomer(1);
-      //  booking.setCar(1);
-        booking.setDateFrom(LocalDate.of(2020, 1, 1));
-        booking.setDateTo(LocalDate.of(2020, 1, 5));
-        booking.setBookingCost(new BigDecimal("75.00"));
 
         when(bookingRepository.getOne(1L)).thenReturn(booking);
         BookingDTO bookingResult = bookingService.getBookingById(1L);
 
         assertEquals(Long.valueOf("1"), bookingResult.getId());
         assertEquals(LocalDate.of(2020, 1, 1), bookingResult.getBookingDate());
-     //   assertEquals(1, bookingResult.getCustomer());
-      //  assertEquals(1, bookingResult.getCar());
-        assertEquals(LocalDate.of(2020, 1, 1), bookingResult.getDateFrom());
-        assertEquals(LocalDate.of(2020, 1, 5), bookingResult.getDateTo());
-        assertEquals(new BigDecimal("75.00"), bookingResult.getBookingCost());
     }
 }
