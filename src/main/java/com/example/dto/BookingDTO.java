@@ -1,11 +1,14 @@
 package com.example.dto;
 
+import com.example.model.Car;
+import com.example.model.Customer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 public class BookingDTO {
 
@@ -17,9 +20,9 @@ public class BookingDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate bookingDate;
     @JsonProperty("customer")
-    private int customer;
+    private Customer customer;
     @JsonProperty("car")
-    private int car;
+    private Car car;
     @ApiModelProperty(required = true, example = "2020-01-01")
     @JsonProperty("dateFrom")
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -47,19 +50,19 @@ public class BookingDTO {
         this.bookingDate = bookingDate;
     }
 
-    public int getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(int customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public int getCar() {
+    public Car getCar() {
         return car;
     }
 
-    public void setCar(int car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 

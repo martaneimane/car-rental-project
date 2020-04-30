@@ -14,10 +14,10 @@ public class Booking implements Serializable {
     private Long id;
     @Column(name = "booking_date")
     private LocalDate bookingDate;
-    @Column(name = "customer")
-    private int customer;
-    @Column(name = "car")
-    private int car;
+    @ManyToOne(targetEntity = Customer.class)
+    private Customer customer;
+    @ManyToOne(targetEntity = Car.class)
+    private Car car;
     @Column(name = "date_from")
     private LocalDate dateFrom;
     @Column(name = "date_to")
@@ -41,19 +41,19 @@ public class Booking implements Serializable {
         this.bookingDate = bookingDate;
     }
 
-    public int getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(int customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public int getCar() {
+    public Car getCar() {
         return car;
     }
 
-    public void setCar(int car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 

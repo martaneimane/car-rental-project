@@ -54,7 +54,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-        bookingDTO.setCar(1);
+    //    bookingDTO.setCar(1);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -74,7 +74,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-        bookingDTO.setCar(1);
+     //   bookingDTO.setCar(1);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -93,7 +93,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-        bookingDTO.setCar(1);
+     //   bookingDTO.setCar(1);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
@@ -111,7 +111,7 @@ class BookingControllerTest {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
         bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-        bookingDTO.setCar(1);
+     //   bookingDTO.setCar(1);
         bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
         bookingDTO.setDateTo(LocalDate.of(2020,1,5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));

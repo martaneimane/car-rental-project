@@ -28,6 +28,7 @@ public class Car implements Serializable {
     @Column(name = "price_per_day")
     private BigDecimal pricePerDay;
 
+
     public Long getId() {
         return id;
     }
@@ -99,4 +100,5 @@ public class Car implements Serializable {
     public void setPricePerDay(BigDecimal pricePerDay) {
         this.pricePerDay = pricePerDay;
     }
+
 }

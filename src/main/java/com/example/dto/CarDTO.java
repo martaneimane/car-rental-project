@@ -1,5 +1,6 @@
 package com.example.dto;
 
+import com.example.model.Booking;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
@@ -89,6 +90,7 @@ public class CarDTO {
     public void setPricePerDay(BigDecimal pricePerDay) {
         this.pricePerDay = pricePerDay;
     }
+
 }
 
 

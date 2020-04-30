@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS `booking`
 
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     booking_date date,
-    customer int, FOREIGN KEY (customer) REFERENCES customer (id),
-    car int, FOREIGN KEY (car) REFERENCES car (id),
+    customer_id int, FOREIGN KEY (customer_id) REFERENCES customer (id),
+    car_id int, FOREIGN KEY (car_id) REFERENCES car (id),
     date_from date,
     date_to date,
     booking_cost decimal
