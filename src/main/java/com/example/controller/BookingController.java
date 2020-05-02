@@ -28,7 +28,7 @@ public class BookingController {
     }
 
     @PutMapping("/booking")
-    public void updateBooking(@RequestBody BookingDTO bookingDTO){
+    public void updateBooking(@RequestBody BookingDTO bookingDTO) {
         bookingService.updateBooking(bookingDTO);
     }
 
