@@ -43,4 +43,11 @@ public class CarService {
         return carMapper.carsToDto(car);
 
     }
+
+    public void updateCarStatusToRented(Long id) {
+        Car car = carRepository.getOne(id);
+        car.setStatus("Rented");
+        carRepository.save(car);
+    }
+
 }

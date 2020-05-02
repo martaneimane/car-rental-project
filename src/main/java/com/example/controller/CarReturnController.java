@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.dto.CarReturnDTO;
 import com.example.service.CarReturnService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class CarReturnController {
     private final CarReturnService carReturnService;
 
+    @Autowired
     public CarReturnController(CarReturnService carReturnService) {
         this.carReturnService = carReturnService;
     }
