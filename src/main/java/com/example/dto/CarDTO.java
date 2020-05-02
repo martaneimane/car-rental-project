@@ -1,6 +1,5 @@
 package com.example.dto;
 
-import com.example.model.Booking;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;

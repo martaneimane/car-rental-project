@@ -41,6 +41,7 @@ class BookingControllerTest {
     @MockBean
     private BookingService bookingService;
 
+
     private ObjectMapper objectMapper = new ObjectMapper();
     private Car car = new Car();
 
@@ -55,10 +56,9 @@ class BookingControllerTest {
     void getAllBookings() throws Exception {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
-        bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
-        bookingDTO.setCar(car);
-        bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
-        bookingDTO.setDateTo(LocalDate.of(2020,1,5));
+        bookingDTO.setBookingDate(LocalDate.of(2020, 1, 1));
+        bookingDTO.setDateFrom(LocalDate.of(2020, 1, 2));
+        bookingDTO.setDateTo(LocalDate.of(2020, 1, 5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
 
         List<BookingDTO> allBookings = Collections.singletonList(bookingDTO);
@@ -75,11 +75,12 @@ class BookingControllerTest {
     void createBooking() throws Exception {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
-        bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
         bookingDTO.setCar(car);
-        bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
-        bookingDTO.setDateTo(LocalDate.of(2020,1,5));
+        bookingDTO.setBookingDate(LocalDate.of(2020, 1, 1));
+        bookingDTO.setDateFrom(LocalDate.of(2020, 1, 2));
+        bookingDTO.setDateTo(LocalDate.of(2020, 1, 5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
+
 
         mvc.perform(post("/api/v1/rest/Booking/booking")
                 .accept(MediaType.APPLICATION_JSON)
@@ -94,10 +95,10 @@ class BookingControllerTest {
     void updateBooking() throws Exception {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
-        bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
+        bookingDTO.setBookingDate(LocalDate.of(2020, 1, 1));
         bookingDTO.setCar(car);
-        bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
-        bookingDTO.setDateTo(LocalDate.of(2020,1,5));
+        bookingDTO.setDateFrom(LocalDate.of(2020, 1, 2));
+        bookingDTO.setDateTo(LocalDate.of(2020, 1, 5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
 
 
@@ -112,10 +113,10 @@ class BookingControllerTest {
     void getBookingById() throws Exception {
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setId(1L);
-        bookingDTO.setBookingDate(LocalDate.of(2020,1,1));
+        bookingDTO.setBookingDate(LocalDate.of(2020, 1, 1));
         bookingDTO.setCar(car);
-        bookingDTO.setDateFrom(LocalDate.of(2020,1,2));
-        bookingDTO.setDateTo(LocalDate.of(2020,1,5));
+        bookingDTO.setDateFrom(LocalDate.of(2020, 1, 2));
+        bookingDTO.setDateTo(LocalDate.of(2020, 1, 5));
         bookingDTO.setBookingCost(new BigDecimal("95.54"));
 
         given(bookingService.getBookingById(1L)).willReturn(bookingDTO);
