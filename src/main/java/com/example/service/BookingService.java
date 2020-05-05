@@ -36,11 +36,12 @@ public class BookingService {
                 .map(bookingMapper::bookingToDto)
                 .collect(Collectors.toList());
     }
-
+//Added line for calculating the booking cost
     public void createBooking(BookingDTO bookingDTO) {
         Booking booking = bookingMapper.bookingFromDto(bookingDTO);
         CarDTO carDTO = carMapper.carsToDto(bookingDTO.getCar());
         carService.updateCarStatusToRented(carDTO.getId());
+        bookingDTO.setBookingCost(carService.calculateBookingCost(bookingDTO));
         bookingRepository.save(booking);
     }
 

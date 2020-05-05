@@ -1,6 +1,7 @@
 package service;
 
 import com.example.dto.CarDTO;
+import com.example.dto.mapper.BookingMapper;
 import com.example.dto.mapper.CarMapper;
 import com.example.model.Car;
 import com.example.repository.CarRepository;
@@ -16,8 +17,8 @@ import static org.mockito.Mockito.when;
 
 class CarServiceTest {
 
-    private CarRepository carRepository = mock(CarRepository.class);
-    CarService carService = new CarService(carRepository, new CarMapper());
+    private final CarRepository carRepository = mock(CarRepository.class);
+    CarService carService = new CarService(carRepository, new CarMapper(), new BookingMapper());
 
 
     @Test
