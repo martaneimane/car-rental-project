@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 class CarServiceTest {
 
     private final CarRepository carRepository = mock(CarRepository.class);
-    CarService carService = new CarService(carRepository, new CarMapper(), new BookingMapper());
+    CarService carService = new CarService(carRepository, new CarMapper());
 
 
     @Test
