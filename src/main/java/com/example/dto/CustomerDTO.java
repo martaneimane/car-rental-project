@@ -1,5 +1,7 @@
 package com.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CustomerDTO {
 
     private Long id;
@@ -7,6 +9,19 @@ public class CustomerDTO {
     private String surname;
     private String address;
     private String email;
+    @JsonProperty("customer_hash")
+    private String customerHash;
+
+
+
+
+    public String getCustomerHash() {
+        return customerHash;
+    }
+
+    public void setCustomerHash(String customerHash) {
+        this.customerHash = customerHash;
+    }
 
     public Long getId() {
         return id;

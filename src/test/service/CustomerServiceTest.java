@@ -1,5 +1,6 @@
 package service;
 
+import com.example.database.NoSQLDatabaseService;
 import com.example.dto.CustomerDTO;
 import com.example.dto.mapper.CustomerMapper;
 import com.example.model.Customer;
@@ -17,7 +18,8 @@ import static org.mockito.Mockito.when;
 class CustomerServiceTest {
 
     private CustomerRepository customerRepository = mock(CustomerRepository.class);
-    CustomerService customerService = new CustomerService(customerRepository, new CustomerMapper());
+    private NoSQLDatabaseService noSQLDatabaseService = mock(NoSQLDatabaseService.class);
+    CustomerService customerService = new CustomerService(noSQLDatabaseService, customerRepository, new CustomerMapper());
 
     @Test
     void getAllCustomers() {

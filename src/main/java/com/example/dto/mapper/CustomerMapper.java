@@ -16,6 +16,18 @@ public class CustomerMapper {
         customerDTO.setEmail(customer.getEmail());
         return customerDTO;
     }
+
+    public CustomerDTO customerToDto(Customer customer, String hash) {
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setId(customer.getId());
+        customerDTO.setName(customer.getName());
+        customerDTO.setSurname(customer.getSurname());
+        customerDTO.setAddress(customer.getAddress());
+        customerDTO.setEmail(customer.getEmail());
+        customerDTO.setCustomerHash(hash);
+        return customerDTO;
+    }
+
     public Customer fromDto(CustomerDTO customerDTO) {
         Customer customer = new Customer();
         customer.setId(customerDTO.getId());

@@ -1,7 +1,9 @@
 package com.example.controller;
 
 import com.example.dto.CustomerDTO;
+import com.example.dto.request.CustomerCreateRequestDTO;
 import com.example.service.CustomerService;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +30,15 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
 
-    @PostMapping("/customer")
-    public void createCustomer(@RequestBody CustomerDTO customerDTO) {
-        customerService.createCustomer(customerDTO);
+    @PostMapping(value = "/customers", consumes = "application/json")
+    public CustomerDTO createCustomer(@RequestBody CustomerCreateRequestDTO customerCreateRequestDTO) {
+        System.out.println(ReflectionToStringBuilder.reflectionToString(customerCreateRequestDTO));
+
+        return customerService.createCustomer(customerCreateRequestDTO.getCustomerDTO(),
+                customerCreateRequestDTO.getPassHash());
     }
 
-    @PutMapping("/customer")
+    @PutMapping("/customers")
     public void updateCustomer(@RequestBody CustomerDTO customerDTO) {
         customerService.updateCustomer(customerDTO);
     }
