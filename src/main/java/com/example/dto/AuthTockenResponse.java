@@ -2,15 +2,15 @@ package com.example.dto;
 
 public class AuthTockenResponse extends AbstractResponseDTO {
 
-    private String customerName;
+    private String customerEmail;
     private String token;
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     public String getToken() {

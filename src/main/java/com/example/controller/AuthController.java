@@ -52,14 +52,14 @@ public class AuthController {
             return authOkResponse;
         } else {
             noSQLDatabaseService.remove(authRequestDTO.getEmail());
-            throw new Exception("NEED TO MAKE ERROR");
+            throw new Exception("NEED TO MAKE ERROR AUTHCONTROLLER");
         }
     }
 
     private AuthTockenResponse createAuthTockenResponse(@PathVariable String email, String generatedString) {
         AuthTockenResponse authTockenResponse = new AuthTockenResponse();
         authTockenResponse.setToken(generatedString);
-        authTockenResponse.setCustomerName(email);
+        authTockenResponse.setCustomerEmail(email);
         return authTockenResponse;
     }
 

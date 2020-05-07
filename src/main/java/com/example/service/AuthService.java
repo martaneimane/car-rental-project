@@ -18,7 +18,7 @@ public class AuthService {
     public String getCustomerPassword(String email) {
         Customer customer = customerRepository.findByEmail(email);
         if (customer == null) {
-            throw new ServiceException("NEED TO MAKE ERROR");
+            throw new ServiceException("NEED TO MAKE ERROR AUTHSERVICE");
         }
         return customer.getPassword();
     }
