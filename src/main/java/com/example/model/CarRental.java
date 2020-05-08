@@ -1,5 +1,8 @@
 package com.example.model;
 
+import com.example.dto.BookingDTO;
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,12 +14,13 @@ public class CarRental implements Serializable {
     @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_CAR_RENTAL", allocationSize = 1)
     private Long id;
-    @Column(name = "employee")
-    private int employee;
+    @ManyToOne(targetEntity = Employee.class)
+    private Employee employee;
     @Column(name = "rental_date")
     private LocalDate rentalDate;
-    @Column(name = "booking")
-    private int booking;
+    @JsonView(BookingDTO.class)
+    @OneToOne(targetEntity = Booking.class)
+    private Booking booking;
     @Column(name = "comments")
     private String comments;
 
@@ -28,11 +32,11 @@ public class CarRental implements Serializable {
         this.id = id;
     }
 
-    public int getEmployee() {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(int employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
@@ -44,11 +48,11 @@ public class CarRental implements Serializable {
         this.rentalDate = rentalDate;
     }
 
-    public int getBooking() {
+    public Booking getBooking() {
         return booking;
     }
 
-    public void setBooking(int booking) {
+    public void setBooking(Booking booking) {
         this.booking = booking;
     }
 

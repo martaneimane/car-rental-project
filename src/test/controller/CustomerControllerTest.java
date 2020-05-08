@@ -85,7 +85,7 @@ class CustomerControllerTest {
         customerDTO.setAddress("Customer address");
         customerDTO.setEmail("customer@example.com");
 
-        mvc.perform(post("/api/v1/rest/Customer/customer")
+        mvc.perform(post("/api/v1/rest/Customer/customers")
                 .accept(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(customerDTO))
                 .contentType(MediaType.APPLICATION_JSON))
@@ -101,7 +101,7 @@ class CustomerControllerTest {
         customerDTO.setAddress("Customer address");
         customerDTO.setEmail("customer@example.com");
 
-        mvc.perform(put("/api/v1/rest/Customer/customer")
+        mvc.perform(put("/api/v1/rest/Customer/customers")
                 .accept(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(customerDTO))
                 .contentType(MediaType.APPLICATION_JSON))

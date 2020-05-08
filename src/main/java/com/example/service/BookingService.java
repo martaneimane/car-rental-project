@@ -1,13 +1,19 @@
 package com.example.service;
 
 import com.example.dto.BookingDTO;
+import com.example.dto.CarRentalDTO;
+import com.example.dto.CarReturnDTO;
 import com.example.dto.mapper.BookingMapper;
+import com.example.dto.mapper.CarRentalMapper;
 import com.example.model.Booking;
 import com.example.model.Car;
+import com.example.model.CarRental;
 import com.example.repository.BookingRepository;
+import com.example.repository.CarRentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.PostPersist;
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -20,8 +26,9 @@ public class BookingService {
     private final BookingMapper bookingMapper;
 
     @Autowired
-    private CarService carService;
-
+    private CarReturnService carReturnService;
+    @Autowired
+    private CarRentalService carRentalService;
 
     @Autowired
     public BookingService(BookingRepository bookingRepository, BookingMapper bookingMapper) {
@@ -36,16 +43,23 @@ public class BookingService {
                 .collect(Collectors.toList());
     }
 
-
     public void createBooking(BookingDTO bookingDTO) {
         Booking booking = bookingMapper.bookingFromDto(bookingDTO);
-        Car car = booking.getCar();
-        carService.updateCarStatusToRented(car.getId());
         booking = bookingRepository.save(booking);
 
         booking.setBookingCost(this.calculateBookingCost(booking));
-        bookingRepository.save(booking);
 
+        CarRentalDTO carRentalDTO = new CarRentalDTO();
+        carRentalDTO.setRentalDate(booking.getDateFrom());
+        carRentalDTO.setBooking(booking);
+
+        CarReturnDTO carReturnDTO = new CarReturnDTO();
+        carReturnDTO.setReturnDate(booking.getDateTo());
+        carReturnDTO.setBooking(booking);
+
+        bookingRepository.save(booking);
+        carRentalService.createCarRental(carRentalDTO);
+        carReturnService.createCarReturn(carReturnDTO);
     }
 
     public void updateBooking(BookingDTO bookingDTO) {

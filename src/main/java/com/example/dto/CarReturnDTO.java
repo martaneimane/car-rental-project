@@ -1,5 +1,7 @@
 package com.example.dto;
 
+import com.example.model.Booking;
+import com.example.model.Employee;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -8,11 +10,11 @@ import java.time.LocalDate;
 
 public class CarReturnDTO {
     private Long id;
-    private int employee;
+    private Employee employee;
     @ApiModelProperty(required = true, example = "2020-01-01")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
-    private int booking;
+    private Booking booking;
     private BigDecimal additionalPayments;
     private String comments;
 
@@ -24,20 +26,19 @@ public class CarReturnDTO {
         this.id = id;
     }
 
-    public int getEmployee() {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(int employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
-
-    public int getBooking() {
+    public Booking getBooking() {
         return booking;
     }
 
-    public void setBooking(int booking) {
+    public void setBooking(Booking booking) {
         this.booking = booking;
     }
 

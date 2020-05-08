@@ -52,15 +52,15 @@ class CarReturnServiceTest {
 
         CarReturn carReturn = new CarReturn();
         carReturn.setId(1L);
-        carReturn.setEmployee(1);
+        carReturn.setComments("Comments test");
 
         when(carReturnRepository.getOne(1L)).thenReturn(carReturn);
         CarReturnDTO carReturnResult = carReturnService.getCarReturnById(1L);
 
-        carReturnResult.setEmployee(2);
+        carReturnResult.setComments("Comments after");
         carReturnService.updateCarReturn(carReturnResult);
 
-        assertEquals(2, carReturnResult.getEmployee());
+        assertEquals("Comments after", carReturnResult.getComments());
 
     }
 

@@ -2,7 +2,9 @@ package service;
 
 import com.example.dto.CarRentalDTO;
 import com.example.dto.mapper.CarRentalMapper;
+import com.example.model.Booking;
 import com.example.model.CarRental;
+import com.example.model.Employee;
 import com.example.repository.CarRentalRepository;
 import com.example.service.CarRentalService;
 import org.junit.jupiter.api.Test;
@@ -18,6 +20,8 @@ class CarRentalServiceTest {
 
     private CarRentalRepository carRentalRepository = mock(CarRentalRepository.class);
     CarRentalService carRentalService = new CarRentalService(carRentalRepository, new CarRentalMapper());
+
+
 
     @Test
     void getAllCarRentals() {
@@ -52,15 +56,15 @@ class CarRentalServiceTest {
     void updateCarRental() {
         CarRental carRental = new CarRental();
         carRental.setId(1L);
-        carRental.setEmployee(1);
+        carRental.setComments("Comments test");
 
         when(carRentalRepository.getOne(1L)).thenReturn(carRental);
         CarRentalDTO carRentalResult = carRentalService.getCarRentalById(1L);
 
-        carRentalResult.setEmployee(2);
+        carRentalResult.setComments("Comments after");
         carRentalService.updateCarRental(carRentalResult);
 
-        assertEquals(2, carRentalResult.getEmployee());
+        assertEquals("Comments after", carRentalResult.getComments());
     }
 
     @Test

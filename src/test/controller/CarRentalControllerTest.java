@@ -3,6 +3,8 @@ package controller;
 import com.example.Application;
 import com.example.controller.CarRentalController;
 import com.example.dto.CarRentalDTO;
+import com.example.model.Booking;
+import com.example.model.Employee;
 import com.example.service.CarRentalService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -41,6 +43,8 @@ class CarRentalControllerTest {
     private CarRentalService carRentalService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
+    private Employee employee = new Employee();
+    private Booking booking = new Booking();
 
     @BeforeEach
     void setUp() {
@@ -54,9 +58,9 @@ class CarRentalControllerTest {
 
         CarRentalDTO carRentalDTO = new CarRentalDTO();
         carRentalDTO.setId(1L);
-        carRentalDTO.setEmployee(1);
+        carRentalDTO.setEmployee(employee);
         carRentalDTO.setRentalDate(LocalDate.of(2020, 1, 1));
-        carRentalDTO.setBooking(1);
+        carRentalDTO.setBooking(booking);
         carRentalDTO.setComments("Test Comments");
 
         List<CarRentalDTO> allCarRentals = Collections.singletonList(carRentalDTO);
@@ -73,9 +77,9 @@ class CarRentalControllerTest {
     void createCarRental() throws Exception {
         CarRentalDTO carRentalDTO = new CarRentalDTO();
         carRentalDTO.setId(1L);
-        carRentalDTO.setEmployee(1);
+        carRentalDTO.setEmployee(employee);
         carRentalDTO.setRentalDate(LocalDate.of(2020, 1, 1));
-        carRentalDTO.setBooking(1);
+        carRentalDTO.setBooking(booking);
         carRentalDTO.setComments("Test Comments");
 
         mvc.perform(post("/api/v1/rest/CarRental/carRental")
@@ -91,9 +95,9 @@ class CarRentalControllerTest {
 
         CarRentalDTO carRentalDTO = new CarRentalDTO();
         carRentalDTO.setId(1L);
-        carRentalDTO.setEmployee(1);
+        carRentalDTO.setEmployee(employee);
         carRentalDTO.setRentalDate(LocalDate.of(2020, 1, 1));
-        carRentalDTO.setBooking(1);
+        carRentalDTO.setBooking(booking);
         carRentalDTO.setComments("Test Comments");
 
         mvc.perform(put("/api/v1/rest/CarRental/carRental")
@@ -108,9 +112,9 @@ class CarRentalControllerTest {
 
         CarRentalDTO carRentalDTO = new CarRentalDTO();
         carRentalDTO.setId(1L);
-        carRentalDTO.setEmployee(1);
+        carRentalDTO.setEmployee(employee);
         carRentalDTO.setRentalDate(LocalDate.of(2020, 1, 1));
-        carRentalDTO.setBooking(1);
+        carRentalDTO.setBooking(booking);
         carRentalDTO.setComments("Test Comments");
 
         given(carRentalService.getCarRentalById(1L)).willReturn(carRentalDTO);

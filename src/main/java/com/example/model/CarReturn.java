@@ -12,12 +12,12 @@ public class CarReturn implements Serializable {
     @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_CAR_RETURN", allocationSize = 1)
     private Long id;
-    @Column(name = "employee")
-    private int employee;
+    @ManyToOne(targetEntity = Employee.class)
+    private Employee employee;
     @Column(name = "return_date")
     private LocalDate returnDate;
-    @Column(name = "booking")
-    private int booking;
+    @OneToOne(targetEntity = Booking.class)
+    private Booking booking;
     @Column(name = "additional_payments")
     private BigDecimal additionalPayments;
     @Column(name = "comments")
@@ -31,11 +31,11 @@ public class CarReturn implements Serializable {
         this.id = id;
     }
 
-    public int getEmployee() {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(int employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
@@ -47,11 +47,11 @@ public class CarReturn implements Serializable {
         this.returnDate = returnDate;
     }
 
-    public int getBooking() {
+    public Booking getBooking() {
         return booking;
     }
 
-    public void setBooking(int booking) {
+    public void setBooking(Booking booking) {
         this.booking = booking;
     }
 

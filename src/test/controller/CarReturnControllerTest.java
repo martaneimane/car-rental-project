@@ -3,6 +3,8 @@ package controller;
 import com.example.Application;
 import com.example.controller.CarReturnController;
 import com.example.dto.CarReturnDTO;
+import com.example.model.Booking;
+import com.example.model.Employee;
 import com.example.service.CarReturnService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -41,6 +43,8 @@ class CarReturnControllerTest {
     private CarReturnService carReturnService;
 
     private ObjectMapper objectMapper = new ObjectMapper();
+    private Employee employee = new Employee();
+    private Booking booking = new Booking();
 
     @BeforeEach
     void setUp() {
@@ -54,9 +58,9 @@ class CarReturnControllerTest {
 
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(1L);
-        carReturnDTO.setEmployee(1);
+        carReturnDTO.setEmployee(employee);
         carReturnDTO.setReturnDate(LocalDate.of(2020, 1, 5));
-        carReturnDTO.setBooking(1);
+        carReturnDTO.setBooking(booking);
         carReturnDTO.setAdditionalPayments(new BigDecimal("00.00"));
         carReturnDTO.setComments("Test Comments");
 
@@ -75,9 +79,9 @@ class CarReturnControllerTest {
 
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(1L);
-        carReturnDTO.setEmployee(1);
+        carReturnDTO.setEmployee(employee);
         carReturnDTO.setReturnDate(LocalDate.of(2020, 1, 5));
-        carReturnDTO.setBooking(1);
+        carReturnDTO.setBooking(booking);
         carReturnDTO.setAdditionalPayments(new BigDecimal("00.00"));
         carReturnDTO.setComments("Test Comments");
 
@@ -94,9 +98,9 @@ class CarReturnControllerTest {
 
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(1L);
-        carReturnDTO.setEmployee(1);
+        carReturnDTO.setEmployee(employee);
         carReturnDTO.setReturnDate(LocalDate.of(2020, 1, 5));
-        carReturnDTO.setBooking(1);
+        carReturnDTO.setBooking(booking);
         carReturnDTO.setAdditionalPayments(new BigDecimal("00.00"));
         carReturnDTO.setComments("Test Comments");
 
@@ -111,9 +115,9 @@ class CarReturnControllerTest {
     void getCarReturnById() throws Exception {
         CarReturnDTO carReturnDTO = new CarReturnDTO();
         carReturnDTO.setId(1L);
-        carReturnDTO.setEmployee(1);
+        carReturnDTO.setEmployee(employee);
         carReturnDTO.setReturnDate(LocalDate.of(2020, 1, 5));
-        carReturnDTO.setBooking(1);
+        carReturnDTO.setBooking(booking);
         carReturnDTO.setAdditionalPayments(new BigDecimal("00.00"));
         carReturnDTO.setComments("Test Comments");
 

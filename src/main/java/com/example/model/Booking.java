@@ -1,5 +1,7 @@
 package com.example.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,14 +14,17 @@ public class Booking implements Serializable {
     @GeneratedValue(generator = "SEQUENCE_GENERATOR", strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "SEQUENCE_GENERATOR", sequenceName = "SEQ_BOOKING", allocationSize = 1)
     private Long id;
+    @ApiModelProperty(required = true, example = "2020-01-01")
     @Column(name = "booking_date")
     private LocalDate bookingDate;
     @ManyToOne(targetEntity = Customer.class)
     private Customer customer;
     @ManyToOne(targetEntity = Car.class)
     private Car car;
+    @ApiModelProperty(required = true, example = "2020-01-01")
     @Column(name = "date_from")
     private LocalDate dateFrom;
+    @ApiModelProperty(required = true, example = "2020-01-01")
     @Column(name = "date_to")
     private LocalDate dateTo;
     @Column(name = "booking_cost")

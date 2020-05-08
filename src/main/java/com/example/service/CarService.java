@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.dto.CarDTO;
-import com.example.dto.mapper.BookingMapper;
 import com.example.dto.mapper.CarMapper;
 import com.example.model.Car;
 import com.example.repository.CarRepository;
@@ -48,6 +47,12 @@ public class CarService {
     public void updateCarStatusToRented(Long id) {
         Car car = carRepository.getOne(id);
         car.setStatus("Rented");
+        carRepository.save(car);
+    }
+
+    public void updateCarStatusToAvailable(Long id) {
+        Car car = carRepository.getOne(id);
+        car.setStatus("Available");
         carRepository.save(car);
     }
 
